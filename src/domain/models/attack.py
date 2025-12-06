@@ -1,5 +1,5 @@
 '''
-Attack model used in dnd.
+Defines the attack model used in dnd.
 
 How is attack structured?
 - It includes a saving throw, attack modifier, damage, range, proficiency, and description.
@@ -13,17 +13,20 @@ How is attack structured?
 How does damage work?
 - Damage is represented as a dictionary where keys are DamageType and values are dictionaries
   mapping Dice to the number of dice rolled.
-- For example, {DamageType.SLASHING: {Dice.D8: 1, Dice.D6: 2}} means the attack deals 1d8 + 2d6 slashing damage.
+- For example:
+  {DamageType.SLASHING: {Dice.D8: 1, Dice.D6: 2}}
+  means the attack deals 1d8 + 2d6 slashing damage.
 '''
 
-from pydantic import BaseModel, PositiveInt
 from typing import Dict, Optional
+from pydantic import BaseModel, PositiveInt
 
 from domain.constants.dice import Dice
 from domain.constants.attribute import Attribute
 from domain.constants.damage_type import DamageType
 
 class Attack(BaseModel):
+    '''Represents an attack with various attributes such as damage, range, and proficiency.'''
     saving_throw: Optional[Attribute] = None
     attack_attribute: Attribute
     damage: Dict[DamageType, Dict[Dice, PositiveInt]]

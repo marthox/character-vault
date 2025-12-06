@@ -1,5 +1,5 @@
 '''
-Background model used in dnd 2014.
+Defines the background model used in dnd 2014.
 '''
 
 from pydantic import BaseModel, PositiveInt

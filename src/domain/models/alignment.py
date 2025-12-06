@@ -1,5 +1,5 @@
 '''
-Alignment model used in dnd.
+Defines the alignment model used in D&D.
 
 How is alignment structured?
 - It includes a description, morality, and ethics.
@@ -20,20 +20,22 @@ following the alignment matrix commonly used in tabletop RPGs.
 -------------------------------------------------|
 '''
 
-from pydantic import BaseModel
 from enum import Enum
 
+from pydantic import BaseModel
+
 class _Morality(Enum):
-    good: str = "Good"
-    neutral: str = "Neutral"
-    evil: str = "Evil"
+    GOOD = "Good"
+    NEUTRAL = "Neutral"
+    EVIL = "Evil"
 
 class _Ethics(Enum):
-    lawful: str = "Lawful"
-    neutral: str = "Neutral"
-    chaotic: str = "Chaotic"    
+    LAWFUL = "Lawful"
+    NEUTRAL = "Neutral"
+    CHAOTIC = "Chaotic"
 
 class Alignment(BaseModel):
+    '''Represents a character's alignment in terms of ethics and morality. '''
     description: str | None = None
     ethics: _Ethics
     morality: _Morality

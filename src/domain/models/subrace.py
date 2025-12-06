@@ -1,8 +1,11 @@
+'''Defines the Subrace model used in dnd.'''
+
 from pydantic import BaseModel
 
 from domain.models.race import Race
 
 class Subrace(BaseModel):
+    '''Represents a subrace in the game.'''
     base_race: Race
     name: str
     description: str

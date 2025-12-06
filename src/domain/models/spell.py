@@ -39,8 +39,8 @@ How do higher level effects work?
   it deals an additional 1d6 damage, and when cast at 3rd level, it deals an additional 2d6 damage.
 '''
 
-from pydantic import BaseModel, Field, PositiveInt
 from typing import Optional, List, Dict
+from pydantic import BaseModel, Field, PositiveInt
 
 from domain.models.attack import Attack
 from domain.models.spell_components import SpellComponents
@@ -51,13 +51,14 @@ from domain.constants.attribute import Attribute
 from domain.constants.common_time import CommonTime
 
 class Spell(BaseModel):
+    '''Represents a spell with its attributes and casting requirements.'''
     name: str
     level: PositiveInt = Field(ge=0, le=9)
     school: MagicSchool
 
     is_ritual: bool = False
     requires_concentration: bool = False
-    duration: str | Dict[CommonTime, PositiveInt] = CommonTime.INSTANTANEOUS
+    duration: str | Dict[CommonTime, PositiveInt] = CommonTime.INSTANTANEOUS.value
 
     spell_casting_attribute: Attribute
     casting_time: Dict[CommonTime, PositiveInt] = Field(default={CommonTime.ACTION: 1}, min_length=1)

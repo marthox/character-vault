@@ -12,13 +12,14 @@ How do material components work?
 - For example, {"golden_rod": {Currency.GOLD, 50}} means the spell requires 50 gold pieces worth of a golden rod.
 '''
 
+from typing import Dict
 from pydantic import BaseModel
-from typing import Dict, List
 
 from domain.constants.currency import Currency
 
 class SpellComponents(BaseModel):
+    '''Represents the components required for casting a spell.'''
     verbal: bool = False
     somatic: bool = False
     material: bool = False
-    material_components: Dict[str, Dict[Currency, int]]= []
+    material_components: Dict[str, Dict[Currency, int]]= {}
