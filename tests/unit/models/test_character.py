@@ -2,7 +2,7 @@
 Test cases for character model creation and validation.
 '''
 
-from src.domain.utils.character_utils import create_attribute, create_death_saves
+from domain.utils.character_utils import create_attribute, create_death_saves
 
 class TestCharacterCreation():
     '''Tests for creating character models.'''
@@ -25,3 +25,4 @@ class TestCharacterCreation():
         assert base_character.death_saves == create_death_saves()
         assert base_character.attacks == []
         assert base_character.spell_book == []
+

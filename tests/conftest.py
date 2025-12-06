@@ -4,7 +4,7 @@ from uuid import uuid4
 
 import pytest
 
-from src.domain.utils.character_utils import create_character
+from domain.utils.character_utils import create_character
 
 @pytest.fixture
 def base_character():
