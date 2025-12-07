@@ -1,6 +1,8 @@
+'''Enumeration of various dice used in role-playing games.'''
 from enum import Enum
 
 class Dice(Enum):
+    '''Enumeration of various dice used in role-playing games.'''
     D2 = "d2"
     D4 = "d4"
     D6 = "d6"

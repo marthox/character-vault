@@ -25,4 +25,3 @@ class TestCharacterCreation():
         assert base_character.death_saves == create_death_saves()
         assert base_character.attacks == []
         assert base_character.spell_book == []
-

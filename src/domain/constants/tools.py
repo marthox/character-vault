@@ -1,6 +1,9 @@
+'''Enumeration of various tools used in role-playing games.'''
+
 from enum import Enum
 
 class Tool(Enum):
+    '''Enumeration of various tools used in role-playing games.'''
     ALCHEMISTS_SUPPLIES = "alchemist's supplies"
     BREWERS_SUPPLIES = "brewer's supplies"
     CALLIGRAPHS_SUPPLIES = "calligrapher's supplies"

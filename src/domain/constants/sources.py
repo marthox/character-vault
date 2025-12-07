@@ -1,6 +1,9 @@
+"""Source book constants for D&D content."""
+
 from enum import Enum
 
 class Source(Enum):
+    """Enum representing D&D source books and publications."""
     PLAYER_HANDBOOK_2014 = "Player's Handbook 2014"
     PLAYER_HANDBOOK_2024 = "Player's Handbook 2024"
     SWORD_COAST_ADVENTURERS_GUIDE = "Sword Coast Adventurer's Guide"

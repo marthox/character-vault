@@ -12,6 +12,7 @@ from domain.constants.languages import Language
 from domain.constants.tools import Tool
 
 class Background(BaseModel):
+    '''Represents a character's background in dnd 2014.'''
     name: str
     description: str
     source: str
@@ -24,6 +25,7 @@ class Background(BaseModel):
     feature: Feat | None = None
 
 class Background2024(BaseModel):
+    '''Represents a character's background in dnd 2024.'''
     name: str
     description: str
     source: str

@@ -25,49 +25,92 @@ class Character(BaseClass):
     A class to represent a character in the RPG system inspired in D&D.
 
     Attributes:
-        id (UUID): Unique identifier for the character.
-        player (UUID): Unique identifier for the player who owns the character.
-        name (str | None): The name of the character.
-        character_appearance (str | None): Description of the character's appearance.
-        allies_and_organizations (str | None): Allies and organizations associated with the character.
-        character_backstory (str | None): The backstory of the character.
-        additional_features_and_traits (str | None): Additional features and traits of the character.
-        treasure (str | None): Treasure owned by the character.
-        main_class (str | CharacterClass | None): The main class of the character.
-        multi_classes (str | List[CharacterClass] | None): Multi-classes of the character.
-        level (PositiveInt): The level of the character (default is 1).
-        background (str | Background | None): The background of the character.
-        race (str | Race | None): The race of the character.
-        subrace (str | Subrace | None): The subrace of the character.
-        alignment (str | Alignment | None): The alignment of the character.
-        experience (NonNegativeInt): The experience points of the character (default is 0).
-        inspiration (NonNegativeInt): The inspiration points of the character (default is 0).
-        proficiency_bonus (PositiveInt): The proficiency bonus of the character (default is 2).
-        saving_throws (List[Attribute]): List of saving throw attributes the character is proficient in.
-        features (List[str]): List of features the character has.
-        skills (List[Skill]): List of skills the character is proficient in.
-        weapons_proficiencies (List[str]): List of weapon proficiencies the character has.
-        armor_proficiencies (List[str]): List of armor proficiencies the character has.
-        tool_proficiencies (List[str]): List of tool proficiencies the character has.
-        other_proficiencies (List[str]): List of other proficiencies the character has.
-        languages (List[str]): List of languages the character knows.
-        attributes (Attribute): The character's attributes (strength, dexterity, constitution, intelligence, wisdom, charisma).
-        armor_class (PositiveInt): The armor class of the character (default is 10).
-        initiative (NonNegativeInt): The initiative bonus of the character (default is 0).
-        speed (PositiveInt): The speed of the character in feet (default is 30).
-        max_hit_points (PositiveInt): The maximum hit points of the character (default is 10).
-        current_hit_points (int): The current hit points of the character (default is 10).
-        temporary_hit_points (NonNegativeInt): The temporary hit points of the character (default is 0).
-        hit_dice (Dict[CharacterClass, NonNegativeInt]): Dictionary mapping character classes to the number of hit dice the character has.
-        spell_slots (SpellSlots): The spell slots available to the character.
-        death_saves (DeathSaves): The death saves of the character (successes and failures).
-        attacks (List[Attack]): List of attacks the character can perform.
-        spell_book (List[Spell]): List of spells the character knows.
-        personality_traits (List[str]): List of personality traits of the character.
-        ideals (List[str]): List of ideals of the character.
-        bonds (List[str]): List of bonds of the character.
-        flaws (List[str]): List of flaws of the character.
-        inventory (List[Item]): List of items in the character's inventory.
+        id (UUID):
+            Unique identifier for the character.
+        player (UUID):
+            Unique identifier for the player who owns the character.
+        name (str | None):
+            The name of the character.
+        character_appearance (str | None):
+            Description of the character's appearance.
+        allies_and_organizations (str | None):
+            Allies and organizations associated with the character.
+        character_backstory (str | None): 
+            The backstory of the character.
+        additional_features_and_traits (str | None):
+            Additional features and traits of the character.
+        treasure (str | None):
+            Treasure owned by the character.
+        main_class (str | CharacterClass | None):
+            The main class of the character.
+        multi_classes (str | List[CharacterClass] | None):
+            Multi-classes of the character.
+        level (PositiveInt):
+            The level of the character (default is 1).
+        background (str | Background | None):
+            The background of the character.
+        race (str | Race | None):
+            The race of the character.
+        subrace (str | Subrace | None):
+            The subrace of the character.
+        alignment (str | Alignment | None):
+            The alignment of the character.
+        experience (NonNegativeInt):
+            The experience points of the character (default is 0).
+        inspiration (NonNegativeInt):
+            The inspiration points of the character (default is 0).
+        proficiency_bonus (PositiveInt):
+            The proficiency bonus of the character (default is 2).
+        saving_throws (List[Attribute]):
+            List of saving throw attributes the character is proficient in.
+        features (List[str]):
+            List of features the character has.
+        skills (List[Skill]):
+            List of skills the character is proficient in.
+        weapons_proficiencies (List[str]):
+            List of weapon proficiencies the character has.
+        armor_proficiencies (List[str]):
+            List of armor proficiencies the character has.
+        tool_proficiencies (List[str]):
+            List of tool proficiencies the character has.
+        other_proficiencies (List[str]):
+            List of other proficiencies the character has.
+        languages (List[str]):
+            List of languages the character knows.
+        attributes (Attribute):
+            The character's attributes (str, dex, con, int, wis, cha).
+        armor_class (PositiveInt):
+            The armor class of the character (default is 10).
+        initiative (NonNegativeInt):
+            The initiative bonus of the character (default is 0).
+        speed (PositiveInt):
+            The speed of the character in feet (default is 30).
+        max_hit_points (PositiveInt):
+            The maximum hit points of the character (default is 10).
+        current_hit_points (int):
+            The current hit points of the character (default is 10).
+        temporary_hit_points (NonNegativeInt):
+            The temporary hit points of the character (default is 0).
+        hit_dice (Dict[CharacterClass, NonNegativeInt]):
+            Dictionary mapping character classes to the number of hit dice the character has.
+        spell_slots (SpellSlots):
+            The spell slots available to the character.
+        death_saves (DeathSaves):
+            The death saves of the character (successes and failures).
+        attacks (List[Attack]):
+            List of attacks the character can perform.
+        spell_book (List[Spell]):
+            List of spells the character knows.
+        personality_traits (List[str]):
+            List of personality traits of the character.
+        ideals (List[str]):
+            List of ideals of the character.
+        bonds (List[str]):
+            List of bonds of the character.
+        flaws (List[str]):
+            List of flaws of the character.
+        inventory (List[Item]):
+            List of items in the character's inventory.
     '''
 
     player: UUID

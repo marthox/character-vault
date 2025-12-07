@@ -1,6 +1,9 @@
+"""Damage type constants for D&D."""
+
 from enum import Enum
 
 class DamageType(Enum):
+    """Enum representing different types of damage in D&D."""
     # Physical
     SLASHING = "slashing"
     PIERCING = "piercing"

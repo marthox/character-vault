@@ -24,6 +24,9 @@ pythonpath = ["src"]
 testpaths = ["tests"]
 
 [tool.pylint.main]
+# Set Python path to include src directory
+init-hook = 'import sys; from pathlib import Path; sys.path.insert(0, str(Path.cwd() / "src"))'
+
 # Ignore common pytest fixture pattern
 disable = [
     "redefined-outer-name",  # Common in pytest fixtures

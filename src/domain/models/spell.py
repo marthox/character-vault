@@ -14,29 +14,40 @@ This structure allows for a comprehensive representation of spells in role-playi
 accommodating various magical effects and casting requirements.
 
 How do casting times work?
-You have two casting times, one for normal casting and one for ritual casting (if applicable), and a duration.
+You have two casting times, one for normal casting and one for ritual casting 
+(if applicable), and a duration.
 
-- Casting time is a dictionary mapping a CastingTime, to an integer representing the amount
-  of that casting time required for the spell.
-  for example, {CastingTime.ACTION: 1} means the spell takes 1 action to cast.
-  {CastingTime.ACTION: 1, CastingTime.BONUS_ACTION: 1} means the spell takes 1 action or 1 bonus action to cast.
+- Casting time is a dictionary mapping a CastingTime, to an integer representing
+  the amount of that casting time required for the spell.
+  for example:
+    {CastingTime.ACTION: 1} 
+      means the spell takes 1 action to cast.
+    {CastingTime.ACTION: 1, CastingTime.BONUS_ACTION: 1}
+      means the spell takes 1 action or 1 bonus action to cast.
 
-- Ritual casting time is optional and can be set to None if the spell does not have a ritual casting time.
-  it works the same way as casting time, but it is only used when casting the spell as a ritual.
-  for example, {CastingTime.MINUTE: 10} means the spell takes 10 minutes to cast as a ritual.
+- Ritual casting time is optional and can be set to None if the spell does not
+  have a ritual casting time. it works the same way as casting time, but it is
+  only used when casting the spell as a ritual.
+  for example: 
+    {CastingTime.MINUTE: 10} 
+      means the spell takes 10 minutes to cast as a ritual.
 
-- Duration is a dictionary mapping a CastingTime to an integer representing the amount
-  of that casting time the spell lasts.
-  for example, {CastingTime.MINUTE: 1} means the spell lasts for 1 minute.
-  {CastingTime.HOUR: 1, CastingTime.MINUTE: 30} means the spell lasts for 1 hour and 30 minutes.
+- Duration is a dictionary mapping a CastingTime to an integer representing the
+  amount of that casting time the spell lasts.
+  for example: 
+    {CastingTime.MINUTE: 1}
+      means the spell lasts for 1 minute.
+    {CastingTime.HOUR: 1, CastingTime.MINUTE: 30}
+      means the spell lasts for 1 hour and 30 minutes.
 
   
 How do higher level effects work?
-- Higher level effects can be either a string description or a dictionary mapping an integer level
-  to a list of tuples, each containing an integer and a Dice type.
-  
-- For example, {2: [(1, Dice.D6)], 3: [(2, Dice.D6)]} means that when the spell is cast at 2nd level,
-  it deals an additional 1d6 damage, and when cast at 3rd level, it deals an additional 2d6 damage.
+- Higher level effects can be either a string description or a dictionary mapping
+  an integer level to a list of tuples, each containing an integer and a Dice type.
+  For example:
+    {2: [(1, Dice.D6)], 3: [(2, Dice.D6)]} 
+      means that when the spell is cast at 2nd level, it deals an additional 1d6 damage,
+      and when cast at 3rd level, it deals an additional 2d6 damage.
 '''
 
 from typing import Optional, List, Dict
@@ -61,7 +72,10 @@ class Spell(BaseModel):
     duration: str | Dict[CommonTime, PositiveInt] = CommonTime.INSTANTANEOUS.value
 
     spell_casting_attribute: Attribute
-    casting_time: Dict[CommonTime, PositiveInt] = Field(default={CommonTime.ACTION: 1}, min_length=1)
+    casting_time: Dict[CommonTime, PositiveInt] = Field(
+        default={CommonTime.ACTION: 1}, min_length=1
+        )
+
     ritual_casting_time: Optional[Dict[CommonTime, PositiveInt]] = None
     range: PositiveInt = 5
     components: SpellComponents
