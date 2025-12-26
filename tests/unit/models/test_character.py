@@ -25,3 +25,13 @@ class TestCharacterCreation():
         assert base_character.death_saves == create_death_saves()
         assert base_character.attacks == []
         assert base_character.spell_book == []
+
+    def test_change_character_name(self, base_character):
+        """Test changing the character's name."""
+        base_character.name = "Aria"
+        assert base_character.name == "Aria"
+
+    def test_increase_character_level(self, base_character):
+        """Test increasing the character's level."""
+        base_character.level += 1
+        assert base_character.level == 2
