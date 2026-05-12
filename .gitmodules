@@ -1,0 +1,3 @@
+[submodule "character-manager"]
+	path = character-manager
+	url = ./character-manager
