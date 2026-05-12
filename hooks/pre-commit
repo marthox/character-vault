@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+set -e
+
+cd character-manager
+
+echo "--- pytest ---"
+uv run pytest
+
+echo "--- ruff ---"
+uv run ruff check src/ tests/
+
+echo "--- pylint ---"
+uv run pylint src/
+
+echo "--- mypy ---"
+uv run mypy src/
+
+echo "All checks passed."
