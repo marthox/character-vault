@@ -1,0 +1,3 @@
+[submodule "services/character-manager"]
+	path = services/character-manager
+	url = git@github.com:marthox/character-manager.git

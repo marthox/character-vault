@@ -1,11 +1,30 @@
 # Character Vault
 
-Character vault is an app to create and store DND characters, no bullsh\*t no payments, no preloaded sh\*t, nothing but a way to store your characters online, you have the control over everything in these sheets
+Service orchestrator for the Character Vault platform.
 
-## Tech decisions
+## Services
 
-Since right now I don't want to deal with extremelly complex or heavy deployment processes but I want to be the application to be able to scale well in case it need it, I will go with a mono repo but it will follow an hexagonal architecture internally, so in case we need to power up some things, we can just take each of the services and put it into its own repo, and create a real hexagonal microservices architecture.
+| Service | Description | Repo |
+|---------|-------------|------|
+| [character-manager](services/character-manager) | Character management API | [marthox/character-manager](https://github.com/marthox/character-manager) |
 
-### Dependencies
-- FastAPI
-- SQLAlchemy
+## Getting Started
+
+```bash
+# Clone with all submodules
+git clone --recurse-submodules git@github.com:marthox/character-vault.git
+
+# Start all services
+docker-compose up --build
+```
+
+## Adding a New Service
+
+1. Create a standalone repo for the service with a `Dockerfile`
+2. Add it as a submodule: `git submodule add <url> services/<name>`
+3. Add the service to `docker-compose.yml`
+4. Commit and push
+
+## Infrastructure
+
+Future IaS tooling (Terraform, AWS CDK, etc.) will live in `infra/`.
