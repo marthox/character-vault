@@ -1,3 +1,6 @@
 [submodule "services/character-manager"]
 	path = services/character-manager
 	url = git@github.com:marthox/character-manager.git
+[submodule "services/auth"]
+	path = services/auth
+	url = git@github.com:marthox/character-auth.git
