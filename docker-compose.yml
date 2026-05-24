@@ -1,4 +1,16 @@
 services:
+  auth:
+    build:
+      context: ./services/auth
+      dockerfile: Dockerfile
+    ports:
+      - "8001:8001"
+    environment:
+      - DATABASE_URL=postgresql://user:pass@db:5432/authdb
+      - JWT_SECRET=change-this-in-production
+    depends_on:
+      - db
+
   character-manager:
     build:
       context: ./services/character-manager
@@ -18,6 +30,7 @@ services:
       POSTGRES_DB: characterdb
     volumes:
       - pgdata:/var/lib/postgresql/data
+      - ./docker/init-databases.sql:/docker-entrypoint-initdb.d/init-databases.sql
 
 volumes:
   pgdata:
